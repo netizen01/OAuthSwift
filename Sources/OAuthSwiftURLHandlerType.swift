@@ -76,6 +76,8 @@ import AuthenticationServices
         }
     }
 
+
+    #if !targetEnvironment(macCatalyst)
     @available(iOS 11.0, *)
     open class SFAuthenticationURLHandler: OAuthSwiftURLHandlerType {
         var webAuthSession: SFAuthenticationSession!
@@ -106,6 +108,7 @@ import AuthenticationServices
             _ = webAuthSession.start()
         }
     }
+    #endif
 
     @available(iOS 9.0, *)
     open class SafariURLHandler: NSObject, OAuthSwiftURLHandlerType, SFSafariViewControllerDelegate {
