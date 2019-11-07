@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if os(iOS)  || os(tvOS)
+#if os(iOS) || os(tvOS)
     import UIKit
     public typealias OAuthViewController = UIViewController
 #elseif os(watchOS)
@@ -35,7 +35,7 @@ public protocol OAuthWebViewControllerDelegate: class {
     func oauthWebViewControllerDidDisappear()
 }
 
-/// A web view controller, which handler OAuthSwift authentification.
+/// A web view controller, which handler OAuthSwift authentification. Must be override to display a web view.
 open class OAuthWebViewController: OAuthViewController, OAuthSwiftURLHandlerType {
 
     #if os(iOS) || os(tvOS) || os(OSX)
@@ -64,7 +64,7 @@ open class OAuthWebViewController: OAuthViewController, OAuthSwiftURLHandlerType
     public enum Present {
         case asModalWindow
         case asSheet
-        case asPopover(relativeToRect: NSRect, ofView : NSView, preferredEdge: NSRectEdge, behavior: NSPopover.Behavior)
+        case asPopover(relativeToRect: NSRect, ofView: NSView, preferredEdge: NSRectEdge, behavior: NSPopover.Behavior)
         case transitionFrom(fromViewController: NSViewController, options: NSViewController.TransitionOptions)
         case animator(animator: NSViewControllerPresentationAnimator)
         case segue(segueIdentifier: String)
